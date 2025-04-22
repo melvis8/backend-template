@@ -1,0 +1,52 @@
+{
+  "name": "backend-template",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.html",
+  "description": "Arobust and complete backend template for express developers",
+  "repository": {
+    "type": "git",
+    "": "git+https://github.com/melvis8/backend-template.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "node",
+    "express",
+    "expressjs",
+    "bqckend",
+    "backend template",
+    "robust"
+  ],
+  "type": "module",
+  "engines": {
+    "node": ">=v20.18.1",
+    "yarn": ">=1.22.22",
+    "npm": ">=10.8.2"
+  },
+  "author": {
+    "name": "NAJELA MELVIS",
+    "email": "melvisnajela@gmail.com",
+    "url": "https://github.com/melvis8"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/melvis8/backend-template/issues"
+  },
+  "homepage": "https://github.com/melvis8/backend-template#readme",
+  "readme": "https://github.com/melvis8/backend-template#readme",
+  "dependencies": {
+    "@prisma/client": "^6.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
