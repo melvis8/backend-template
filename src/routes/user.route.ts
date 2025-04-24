@@ -8,10 +8,11 @@ export default function (prisma) {
   router.post('/', async (req: Request, res:Response) => {
     const { name,age } = req.body;
     try {
-      const user = await prisma.user.create({ data: { name } });
+      const user = await prisma.user.create({ data: { name ,age} });
       res.status(201).json(user);
     } catch (err) {
       res.status(500).json({ error: err.message });
+      console.error(err)
     }
   });
 
