@@ -1,7 +1,11 @@
 import express from 'express';
 import {Request,Response} from 'express'
+import { PrismaClient } from '@prisma/client';
 
-export default function (prisma) {
+const prisma =  new PrismaClient()
+
+
+export default function () {
   const router = express.Router();
 
   // Create
@@ -10,7 +14,7 @@ export default function (prisma) {
     try {
       const user = await prisma.user.create({ data: { name ,age} });
       res.status(201).json(user);
-    } catch (err) {
+    } catch (err:any) {
       res.status(500).json({ error: err.message });
       console.error(err)
     }
@@ -30,7 +34,7 @@ export default function (prisma) {
       });
       if (!user) return res.status(404).json({ error: 'Not found' });
       res.json(user);
-    } catch (err) {
+    } catch (err:any) {
       res.status(400).json({ error: err.message });
     }
   });
@@ -41,10 +45,10 @@ export default function (prisma) {
     try {
       const user = await prisma.user.update({
         where: { id: req.params.id },
-        data: { name },
+        data: { name,age },
       });
       res.json(user);
-    } catch (err) {
+    } catch (err:any) {
       res.status(400).json({ error: err.message });
     }
   });
@@ -54,7 +58,7 @@ export default function (prisma) {
     try {
       await prisma.user.delete({ where: { id: req.params.id } });
       res.json({ message: 'user deleted' });
-    } catch (err) {
+    } catch (err:any) {
       res.status(400).json({ error: err.message });
     }
   });
