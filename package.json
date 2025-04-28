@@ -16,7 +16,8 @@
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "nodemon": "^3.1.10",
-    "prisma": "^6.6.0"
+    "prisma": "^6.6.0",
+    "qs": "^6.14.0"
   },
   "version": "1.0.0",
   "description": "To install dependencies:",
@@ -25,7 +26,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "generate": "bunx prisma generate",
     "push": "bunx prisma db push",
-    "dev": "bun src/index.ts"
+    "dev": "bun src/index.ts",
+    "start": "bun run src/index.ts"
   },
   "repository": {
     "type": "git",
