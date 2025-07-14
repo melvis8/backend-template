@@ -1,9 +1,10 @@
 import express from 'express';
-import { Request, Response } from 'express';
+import type{ Request, Response } from 'express';
 import { PrismaClient } from '@prisma/client';
+import NodeCache from 'node-cache';
 
 const prisma =  new PrismaClient()
-
+const cache = new NodeCache({ stdTTL: 60 })
 
 export default function () {
   const router = express.Router();
@@ -44,8 +45,13 @@ export default function () {
  */
 
   // Read All
-  router.get('/', async (req: Request, res:Response) => {
+  router.get('/all-users', async (req: Request, res:Response) => {
+
+      const cached = cache.get('all-users');
+  if (cached) return res.json(cached);
+
     const users = await prisma.user.findMany();
+    cache.set('all-users',users);
     res.json(users);
   });
 

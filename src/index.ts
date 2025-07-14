@@ -1,6 +1,5 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import { PrismaClient } from '@prisma/client';
 import userRoute from './routes/user.route';
 import rateLimit from 'express-rate-limit';
 import compression from 'compression';
@@ -16,7 +15,6 @@ const limiter = rateLimit({
   max: 100, // limit each IP to 100 requests per windowMs
   message:' Too many requests, please try again later.',
 });
-const prisma = new PrismaClient();
 
 setupSwagger(app);
 
