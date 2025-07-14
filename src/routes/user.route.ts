@@ -20,6 +20,29 @@ export default function () {
     }
   });
 
+  /*** 
+  * @swagger
+ * /users:
+ *   get:
+ *     summary: Retrieve a list of users
+ *     responses:
+ *       200:
+ *         description: A list of users
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   id:
+ *                     type: integer
+ *                     example: 1
+ *                   name:
+ *                     type: string
+ *                     example: John Doe
+ */
+
   // Read All
   router.get('/', async (req: Request, res:Response) => {
     const users = await prisma.user.findMany();
@@ -41,7 +64,7 @@ export default function () {
 
   // Update
   router.put('/:id', async (req: Request, res:Response) => {
-    const { name } = req.body;
+    const { name,age } = req.body;
     try {
       const user = await prisma.user.update({
         where: { id: req.params.id },

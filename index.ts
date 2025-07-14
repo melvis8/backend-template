@@ -2,7 +2,7 @@
 import { generate } from "@prisma/client/generator-build";
 async function main() {
   await generate();
-  console.log("✅ Prisma Client generated successfully");
+  console.log("Prisma Client generated successfully");
 }
 
 main().catch((e) => {
